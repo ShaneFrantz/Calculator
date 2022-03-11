@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+      Sprint 4
+      Teamm WubALubADubDubs
+      Izzy, Katie, Mike, Shane
+      Health Risk Calculator 
+      In Node.js
+  -->
+
+<!-- Styles taken from w3schools -->
+<style>
+    p {
+  font-size: 12px;
+  
+}
+p3{
+  font-size: 50px;
+  text-decoration-color: black;
+  color: red;
+  text-align: center;
+}
+
+.box {
+  width: 825px;
+  border: 15px solid black;
+  padding: 50px;
+  margin: 20px;
+}
+
+.box1 {
+  width: 625px;
+  border: 15px solid black;
+  padding: 50px;
+  margin: 20px;
+}
+label {
+  font-size: 22px;
+  color: blue;
+}
+
+header {
+  font-size: 25px;
+  color: blue;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+.field{
+color: aliceblue;
+}
+@media screen and (max-width: 1000px) {
+  .box, .box1, .field  {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+</style>
+
+<title>Health Risk Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<!-- Picture with text -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  <img class="w3-image" src="https://i.ibb.co/g3BRt1h/i-Stock-1203599963.jpg"   alt="Me" width="1500" height="600">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-gray w3-center">
+    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">Health Risk</h1>
+    <h5 class="w3-hide-large" style="white-space:nowrap">Health Risk</h5>
+    <h3 class="w3-hide-medium w3-hide-small w3-text-light-gray">Calculator</h3>
+  </div>
+  
+  
+  <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
+    <!-- link back to portfolio-->
+    <a href="https://zealous-river-0ee524e10.1.azurestaticapps.net/" class="w3-bar-item w3-button">Portfolio</a>
+    
+  </div>
+</header>
+
+
+
+
+<!-- Portfolio-->
+<div class="w3-content w3-padding-large w3-margin-top" id="portfolio">
+
+
+<!-- Input box from W3 Schools tutorial-->
+  <!--This is where the information will be put in-->
+  <div class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="contact" >
+    <h3 class="w3-center">Health Risk Calculator</h3>
+    <hr>
+    <p>This program helps you classify health insurance
+        based on their risk level. That is determined
+        by their health. Their health is judged in terms
+        of their body-mass index, blood pressure, age,
+        and family history of disease. Please enter your 
+        information in the boxes below. Then hit calculate 
+        to get your insurance risk.</p>
+
+    
+      <div class = "center">
+      <div class="w3-section">
+        <label>Age</label>
+        <p> Enter your age in years</p>
+        <select onchange="calculate()" id="age">
+          <!-- example of values correctly changed-->
+          <option value= "0">1-29</option>
+          <option value = "0">30-44</option>
+          <option value = "0">45-60</option>
+          <option value = "0">else</option>
+        </select>
+      </div>
+
+     <div class="w3-section">
+        <label>Height</label>
+        <p> Enter height in total inches </p>
+        <select onchange="calculate()" id="height">
+          <!-- these values for height and weight can be special because you-->
+          <!-- need to do a calulation with both of them-->
+          <option value = "0">5'0" and under</option>
+          <option value = "0">5'1"-5'4"</option>
+          <option value = "0">5'5"-5'8"</option>
+          <option value = "0">5'9"-5'11"</option>
+          <option value = "0">6'0" and up</option>
+        </select>
+      </div>
+
+
+      <div class="w3-section">
+      <label>Weight</label>
+      <p> Enter weight in total pounds </p>
+      <select onchange="calculate()" id="weight">
+        <option value = "0">0-100</option>
+        <option value = "0">100-125</option>
+        <option value = "0">125-150</option>
+        <option value = "0">150-175</option>
+        <option value = "0"> 175-200</option>
+        <option value = "0">200 and up</option>
+      </select>
+    </div>
+
+      <div class="w3-section">
+        <label>Blood Pressure</label>
+        <!-- change values from here on based on assignment-->
+        <p> Enter normal, elevated, stage 1, stage 2, or crisis </p>
+        <select onchange="calculate()" id="blood">
+          <option value = "0">normal</option> 
+          <option value = "0">elevated</option>
+          <option value = "0">stage 1</option>
+          <option value = "0">stage 2</option>
+          <option value = "0">crisis</option>
+        </select>
+      </div>
+
+
+      <div class="w3-section">
+        <label>Family Diease</label>
+        <p> Enter diabetes, cancer or Alzhiemers </p>
+    
+        <select onchange="calculate()" id="family">
+          <option value = "0">none</option>
+          <option value = "0">diabetes</option>
+          <option value = "0">cancer</option>
+          <option value = "0">Alzhiemers</option>
+        </select>
+      </div>
+      
+      <div class="w3-section">
+        
+
+
+        </select>
+      </div>
+
+      <div class = "box">
+        <header>Results</header>
+        <div class = "box1">
+          <div class="field">
+        <input id="sum" size= 50 disabled >
+      </div>
+        </div>
+        </div>
+
+      <button type="submit" onclick="calculate()" class="w3-button w3-block w3-dark-grey">Calculate</button>
+      <p>
+
+      </p>
+      <button type="reset" onclick="reset()" class="w3-button w3-block w3-dark-grey">Reset</button>
+      <p>
+
+      </p>
+
+    </div> 
+
+  </div>
+  
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+
+  </div>
+
+<script>
+
+	async function calculate() {
+
+	}
+
+	async function reset() {
+
+	}
+
+
+</script>
+</body>
+</html>
