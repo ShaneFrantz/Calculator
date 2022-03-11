@@ -107,54 +107,48 @@ color: aliceblue;
       <div class="w3-section">
         <label>Age</label>
         <p> Enter your age in years</p>
-        <select onchange="calculate()" id="age">
+        <select id="age">
           <!-- example of values correctly changed-->
           <option value= "0">1-29</option>
           <option value = "10">30-44</option>
           <option value = "20">45-60</option>
-          <option value = "30">else</option>
+          <option value = "30">60+</option>
         </select>
       </div>
 
      <div class="w3-section">
         <label>Height</label>
         <p> Enter height in total inches </p>
-        <select onchange="calculate()" id="height">
           <form>
             <input type="text" id="heightIn">
           </form> 
-        </select>
       </div>
 
 
       <div class="w3-section">
       <label>Enter weight in pounds:</label>
-      <select onchange="calculate()" id="weight">
         <form>
           <input type="text" id="weightLbs">
         </form> 
-      </select>
       </div>
 
       <div class="w3-section">
         <label>Blood Pressure</label>
         <!-- change values from here on based on assignment-->
-        <p> Enter normal, elevated, stage 1, stage 2, or crisis </p>
-        <select onchange="calculate()" id="blood">
+        <p> Enter systolic and diastolic values </p>
           <form>
             <input type="text" id="systolic">
           </form>
           <form>
             <input type="text" id="diastolic">
           </form>
-        </select>
       </div>
 
       <div class="w3-section">
         <label>Family Disease</label>
         <p> Enter diabetes, cancer, or Alzhiemers </p>
     
-        <select onchange="calculate()" id="family">
+        <select id="family">
           <option value = "0">none</option>
           <option value = "10">diabetes</option>
           <option value = "10">cancer</option>
@@ -193,7 +187,6 @@ color: aliceblue;
 	async function calculate() {
     ///Grabbing values for risk calc
     var ageNum = document.getElementById("age").value;
-    var bloodPressNum = document.getElementById("blood").value;
     var famHistNum = document.getElementById("family").value;
     //Blood pressure values
     var systolic = document.getElementById("systolic").value;
@@ -238,7 +231,7 @@ color: aliceblue;
     }
 
     //Total risk
-    riskTotal = ageNum + bloodPressNum + famHistNum + bmiNum + bloodRisk;
+    riskTotal = ageNum + famHistNum + bmiNum + bloodRisk;
     //Assigning riskTotal values
     var riskVal;
     if(riskTotal <= 20){
@@ -257,7 +250,7 @@ color: aliceblue;
 
     //delete these when done testing
     console.log(ageNum);
-    console.log(bloodPressNum);
+    console.log(bloodRisk);
     console.log(famHistNum);
     console.log(systolic);
     console.log(diastolic);
