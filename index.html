@@ -196,8 +196,8 @@ color: aliceblue;
     var bloodPressNum = document.getElementById("blood").value;
     var famHistNum = document.getElementById("family").value;
     //Blood pressure values
-    var systolic = parseInt(document.getElementById("systolic"));
-    var diastolic = parseInt(document.getElementById("diastolic"));
+    var systolic = document.getElementById("systolic").value;
+    var diastolic = document.getElementById("diastolic").value;
 
     //Assigning blood pressure values
     var bloodRisk;
@@ -221,8 +221,8 @@ color: aliceblue;
     }
 
     //Creating Bmi computation values
-    var weightKg = 0.453592 * parseInt(document.getElementById("weightLbs"));
-    var heightM = 0.0254 * parseInt(document.getElementbyId("heightIn"));
+    var weightKg = 0.453592 * document.getElementById("weightLbs").value;
+    var heightM = 0.0254 * document.getElementById("heightIn").value;
     var bmi = weightKg / (heightM)^2;
 
     //Assigning BMI risk values
@@ -266,7 +266,6 @@ color: aliceblue;
     console.log(heightM);
     console.log(bmiNum);
     console.log(riskVal);
-
 	}
 
 
